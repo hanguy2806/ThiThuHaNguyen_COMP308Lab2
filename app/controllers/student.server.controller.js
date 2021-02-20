@@ -39,22 +39,28 @@ exports.renderSignIn=function(req,res,next){
 		title: 'Login'
 	});
 }
+//sign in post request
 exports.signin= function(req, res, next) {
-    var email = req.body.email;
-	var password=req.body.password;
-	console.log(email);
+    var {email, password} = req.body;
+
     Student.findOne({
         email: email
-    }, (err, student) => {
-        if (err) {
-			console.log('error');
+    }
+	, (err, student) => {
+        if (err || !student) {
+			console.log('error HERE');
+			res.render('error_message',{message:"Could not found user"});
             // Call the next middleware with an error message
-            return next(err);
-        } else {		
-			console.log('nope');
-            res.redirect('/submit_comments');
-            // Call the next middleware
-            next();
+         //   return next(err);
+        } else {	
+			if(student.password === password){
+				console.log(student.firstName);
+				res.redirect('/submit_comments');
+				// Call the next middleware
+				next();
+			}	
+			res.render('error_message',{message:"Password does not match"});
+			
         }
     });
 };
@@ -70,8 +76,10 @@ exports.list = function(req, res, next) {
 			// Call the next middleware withks an error message
 			return next(err);
 		} else {
-			// Use the 'response' object to send a JSON response
-			res.json(students);
+			res.render('students',{
+				title: 'List of Student',
+				students:students
+			})
 		}
 	});
 };

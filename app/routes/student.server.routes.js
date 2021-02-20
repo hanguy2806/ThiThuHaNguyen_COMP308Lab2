@@ -24,9 +24,7 @@ module.exports = function (app) {
     app.route('/submit_comments')
         .get(students.renderSubmitComment);
         
-
-//not necessary
-    app.route('/displayAll')    
+    app.route('/students')    
         .get(students.list);
   
 };
