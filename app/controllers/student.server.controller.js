@@ -47,13 +47,16 @@ exports.signin= function(req, res, next) {
         email: email
     }
 	, (err, student) => {
-        if (err || !student) {
+        if (err) {
 			console.log('error HERE');
 			res.render('error_message',{message:"Could not found user"});
             // Call the next middleware with an error message
          //   return next(err);
         } else {	
 			if(student.password === password){
+				var session=req.session;
+				session.email=student.email;
+				session.id=student._id;
 				console.log(student.firstName);
 				res.redirect('/submit_comments');
 				// Call the next middleware

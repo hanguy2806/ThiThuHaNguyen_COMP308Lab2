@@ -47,7 +47,6 @@ module.exports = function () {
   app.engine("html", require("ejs").renderFile);
 
   require("../app/routes/student.server.routes.js")(app);
-
   require("../app/routes/comment.server.routes.js")(app);
 
   // Configure static file serving
