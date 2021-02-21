@@ -9,13 +9,20 @@
 <body>
 
 <h1>Login to evaluate the course:</h1>
-
-    <form method="post">
+<form method="post">
+        <div class="outer_container">
+        <div class="container">
         <label for="email">Email:</label>
-        <input type="text" size="50" placeholder="Enter your email" name="email"><br />      
+        <input type="text" class="fields" placeholder="Enter your email" name="email"><br /> 
+    </div>
+    <div class="container">     
         <label for="password">Password:</label>
-        <input type="password" size="50" placeholder="Enter your password" name="password"><br />       
-        <input type="submit" value="Login" name="submit">
+        <input type="password" class="fields" placeholder="Enter your password" name="password"><br />       
+    </div>
+    <div class="container">
+        <button type="submit" class="form-field-no-caption">Login</button>
+    </div>
+</div>
     </form>
 </body>
 </html>

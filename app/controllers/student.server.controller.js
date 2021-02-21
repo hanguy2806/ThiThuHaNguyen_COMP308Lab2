@@ -47,11 +47,11 @@ exports.signin= function(req, res, next) {
         email: email
     }
 	, (err, student) => {
-        if (err) {
+        if (err || !student) {
 			console.log('error HERE');
 			res.render('error_message',{message:"Could not found user"});
             // Call the next middleware with an error message
-         //   return next(err);
+           // return next(err);
         } else {	
 			if(student.password === password){
 				var session=req.session;
@@ -62,8 +62,7 @@ exports.signin= function(req, res, next) {
 				// Call the next middleware
 				next();
 			}	
-			res.render('error_message',{message:"Password does not match"});
-			
+			res.render('error_message',{message:"Password does not match"});	
         }
     });
 };

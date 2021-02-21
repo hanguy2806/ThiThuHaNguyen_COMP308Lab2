@@ -10,24 +10,31 @@
 <body>
 
     <form method="post">   
-
+    <div class="outer_container">
+        <div class="container">
         <label for="courseCode">Course Code:</label>
-        <input type="text" placeholder="Enter your course code" name="courseCode"><br />
-      
+        <input type="text" class="fields" placeholder="Enter your course code" name="courseCode"><br />
+    </div>
+    <div class="container">
         <label for="courseName">Course Name:</label>
-        <input type="text"  placeholder="Enter your course name" name="courseName"><br />
-        
+        <input type="text" class="fields"  placeholder="Enter your course name" name="courseName"><br />
+    </div>
+    <div class="container"> 
         <label for="program">Program:</label>
-        <input type="text" placeholder="Enter your program" name="program" /><br/>
-
+        <input type="text" class="fields" placeholder="Enter your program" name="program" /><br/>
+    </div>
+    <div class="container">
         <label for="semester">Semester:</label>
-        <input type="text" placeholder="Enter your semester" name="semester"><br />
-  
+        <input type="text" class="fields" placeholder="Enter your semester" name="semester"><br />
+    </div>
+    <div class="container">
         <label for="comment">Your comments:</label>
         <textarea name="comment" rows="4"></textarea><br/>
-
-        <input type="submit" value="Submit" name="submit">
-
+    </div>
+    <div class="container">
+        <button type="submit" class="form-field-no-caption">Submit</button>
+    </div>
+    </div>
    </form>
 </body>
 </html>

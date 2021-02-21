@@ -26,8 +26,6 @@ form {
     width: 80%
 }
 
-
-
 label {
     display: inline-block;
     float: left;
@@ -43,6 +41,9 @@ h2 {
 input {
     display: inline-block;
     float: left;
+}
+.extend-width{
+    width: 250px;
 }
 
 .fields {
